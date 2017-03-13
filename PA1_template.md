@@ -79,7 +79,7 @@ for (i in 1:length(activity.imputed$steps)) {
 }
 activity.daytypeAvg <- activity.imputed %>% select(steps,interval,daytype) %>% group_by(interval, daytype) %>% summarize(interval_avg = mean(steps, na.rm = TRUE))
 library(ggplot2)
-qplot(interval, interval_avg, data=activity.daytypeAvg, color=daytype, geom = "line", ylab = "avg steps per interval")
+qplot(interval, interval_avg, data=activity.daytypeAvg, facets=daytype~., geom = "line", ylab = "avg steps per interval")
 ```
 
 ![](PA1_template_files/figure-html/weekdays-1.png)<!-- -->
